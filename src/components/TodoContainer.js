@@ -60,7 +60,8 @@ class TodoContainer extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
+      <div className="inner">
         <Header />
         <InputTodo addTodoProps={this.addTodoItem} />
         <TodoList
@@ -68,6 +69,7 @@ class TodoContainer extends Component {
           handleChangeProps={this.handleChange}
           deleteTodoProps={this.delTodo}
         />
+        </div>
       </div>
     );
   }
