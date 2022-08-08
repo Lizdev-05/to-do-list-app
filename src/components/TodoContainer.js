@@ -38,37 +38,49 @@ class TodoContainer extends Component {
     }));
   };
 
-  delTodo = id => {
+  delTodo = (id) => {
     this.setState({
       todos: [
-        ...this.state.todos.filter(todo => {
+        ...this.state.todos.filter((todo) => {
           return todo.id !== id;
-        })
-      ]
+        }),
+      ],
     });
   };
 
-  addTodoItem = title => {
+  addTodoItem = (title) => {
     const newTodo = {
       id: uuidv4(),
       title: title,
-      completed: false
+      completed: false,
     };
     this.setState({
-      todos: [...this.state.todos, newTodo]
+      todos: [...this.state.todos, newTodo],
     });
   };
+
+  setUpdate = (updatedTitle, id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.title = updatedTitle
+        }
+        return todo
+      }),
+    })
+  }
   render() {
     return (
       <div className="container">
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={this.addTodoItem} />
-        <TodoList
-          todos={this.state.todos}
-          handleChangeProps={this.handleChange}
-          deleteTodoProps={this.delTodo}
-        />
+        <div className="inner">
+          <Header />
+          <InputTodo addTodoProps={this.addTodoItem} />
+          <TodoList
+            todos={this.state.todos}
+            handleChangeProps={this.handleChange}
+            deleteTodoProps={this.delTodo}
+            setUpdate={this.setUpdate}
+          />
         </div>
       </div>
     );
