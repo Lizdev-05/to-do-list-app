@@ -4,15 +4,9 @@
 
 This React to-do application was motivated by a React tutorial. I followed the tutorial judiciously to consolidate my skills in React library. The app can delete, update, and add new tasks to enhance task management.
 
-![screenshot](./src/images/screenshot.png)
-
 ## Built With
 
 - React (A free and open-source front-end JavaScript library for building user interfaces based on UI components)
-
-## Live Demo
-
-[Live Demo Link]()
 
 ### Prerequisites
 
